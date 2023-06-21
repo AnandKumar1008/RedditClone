@@ -31,6 +31,8 @@ const Option = () => {
       return;
     }
     setLogin((p) => false);
+    const arr=[];
+    localStorage.setItem('reddit_clone',JSON.stringify(arr));
   };
   return (
     <div className="reddit_clone-nav_option">

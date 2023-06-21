@@ -1,16 +1,16 @@
-import React, { useContext, useState } from "react";
-import "./CreatePassword.css";
-import { BiArrowBack } from "react-icons/bi";
-import { MyContext } from "../../App";
+import React, { useContext, useState } from 'react';
+import './CreatePassword.css';
+import { BiArrowBack } from 'react-icons/bi';
+import { MyContext } from '../../App';
 const CreatePassword = () => {
-  const { setShowForm ,setLogin} = useContext(MyContext);
+  const { setShowForm, setLogin, setUserName } = useContext(MyContext);
   const [inp, setInp] = useState({
-    username: "",
-    create_password: "",
+    username: '',
+    create_password: '',
   });
   const [error, setError] = useState({
-    usernameError: "",
-    createpasswordError: "",
+    usernameError: '',
+    createpasswordError: '',
   });
   const handleChange = (e) => {
     setInp({ ...inp, [e.target.name]: e.target.value });
@@ -21,7 +21,7 @@ const CreatePassword = () => {
     if (inp.username.length <= 3 || inp.username.length > 20) {
       setError({
         ...error,
-        usernameError: "username must have characters between and 4 to 20",
+        usernameError: 'username must have characters between and 4 to 20',
       });
       e.preventDefault();
       return;
@@ -30,34 +30,35 @@ const CreatePassword = () => {
       e.preventDefault();
       setError({
         ...error,
-        createpasswordError: "password must have more than 6 characters",
+        createpasswordError: 'password must have more than 6 characters',
       });
       return;
     }
-    const reddit = localStorage.getItem("reddit_clone") || [];
+    const reddit = localStorage.getItem('reddit_clone') || [];
     //    const store=[]
     if (reddit.length == 0) {
       reddit.push(inp.username);
-      localStorage.setItem("reddit_clone", JSON.stringify(reddit));
+      localStorage.setItem('reddit_clone', JSON.stringify(reddit));
     } else {
       if (reddit.includes(inp.username)) {
-        setError({ ...error, usernameError: "UserName Already taken" });
+        setError({ ...error, usernameError: 'UserName Already taken' });
         return;
       }
       const data = JSON.parse(reddit);
       data.push(inp.username);
-      localStorage.setItem("reddit_clone", JSON.stringify(data));
+      localStorage.setItem('reddit_clone', JSON.stringify(data));
     }
     setLogin(true);
-    setShowForm("none");
+    setUserName(inp.username);
+    setShowForm('none');
   };
   return (
     <div className="reddit_clone-create_password">
       <div className="reddit_clone-create_password_close">
-        <button onClick={() => setShowForm("Signup")}>
+        <button onClick={() => setShowForm('Signup')}>
           <BiArrowBack />
         </button>
-        <button onClick={() => setShowForm("none")}>X</button>
+        <button onClick={() => setShowForm('none')}>X</button>
       </div>
       <div className="reddit_clone-create_password_container">
         <div className="reddit_clone-create_password_heading">
@@ -81,7 +82,9 @@ const CreatePassword = () => {
             onChange={handleChange}
             required
           />
-          {error.usernameError && <p style={{color:"red"}}>{error.usernameError}</p>}
+          {error.usernameError && (
+            <p style={{ color: 'red' }}>{error.usernameError}</p>
+          )}
           <input
             type="password"
             placeholder="Create Password"
@@ -90,7 +93,9 @@ const CreatePassword = () => {
             onChange={handleChange}
             value={inp.create_password}
           />
-          {error.createpasswordError && <p style={{color:"red"}}>{error.createpasswordError}</p>}
+          {error.createpasswordError && (
+            <p style={{ color: 'red' }}>{error.createpasswordError}</p>
+          )}
           <button>Continue</button>
         </form>
       </div>

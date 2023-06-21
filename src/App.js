@@ -10,7 +10,7 @@ import CreatePost from './Components/CreatePost/CreatePost';
 import Menu from './Components/Menu/Menu';
 import RightSection from './Components/RightSection/RightSection';
 import CreatePassword from './Components/Signup/CreatePassword';
-
+import Post from './Components/Post/Post';
 const darkTheme = {
   backgroundColor: '#2C3333',
   color: 'white',
@@ -32,13 +32,26 @@ const App = () => {
   const [newPost, setNewPost] = useState(false);
   const [showForm, setShowForm] = useState('none');
   const [userName, setUserName] = useState('');
-  // useEffect(() => {
-  //   const reddit = JSON.parse(localStorage.getItem('reddit_clone'));
-  //   if (reddit) {
-  //     setLogin(true);
-  //     setUserName(reddit[0]);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const reddit = JSON.parse(localStorage.getItem('reddit_clone'));
+    if (reddit) {
+      setLogin(true);
+      setUserName(reddit[0]);
+    }
+    const comments=async()=>{
+      const res=await fetch('https://jsonplaceholder.typicode.com/comments');
+      const data=await res.json();
+      console.log(data);
+      
+     
+      const arr=[];
+      for(let i=0;i<20;i++){
+        arr[i]=<Post title={data[i].name} textArea={data[i].body}/>
+      }
+      setUpdate(arr);
+    }
+    comments();
+  }, []);
   return (
     <div
       className="reddit_clone-app"
