@@ -4,6 +4,7 @@ import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 // import { FaDown } from "react-icons/fa";
 import { BiDownvote, BiUpvote } from 'react-icons/bi';
+import { BiSolidDownvote, BiSolidUpvote } from 'react-icons/bi';
 const Post = (props) => {
   const [vote, setVote] = useState(Math.floor(Math.random() * 100));
   const [oneVote, setOneVote] = useState({
