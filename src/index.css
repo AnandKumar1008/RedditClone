@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400&family=Signika+Negative:wght@300;400;500;600&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-a: 'Bebas Neue', sans-serif;
+  --font-b: 'Montserrat', sans-serif;
+  --font-c: 'Signika Negative', sans-serif;
+  background-color: #dae0e6;
+  --color-black: #0c0c0c;
+  --color-light: #d7dadc;
+  --color-bac: #ffffff;
+  --color-canvas: #dae0e6;
+  --color-a: #0079ff;
+  --color-border: #e1ecc8;
+  --color-lightDark: #474748;
+}

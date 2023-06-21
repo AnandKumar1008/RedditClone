@@ -1,0 +1,35 @@
+.reddit_clone-menu{
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+    font-family: var(--font-c);
+    height: 100vh;
+    background-color: white;
+}
+.reddit_clone-menu{
+    position: fixed;
+    top: 3.3rem;
+    left: 0;
+}
+.reddit_clone-menu button{
+    text-align: start;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: white;
+    font-family: var(--font-c);
+    /* padding-left: 1rem; */
+}
+.reddit_clone-menu button:hover{
+    background-color: var(--color-border);
+    cursor: pointer;
+}
+.reddit_clone-menu p{
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    font-family: var(--font-c);
+}
+.react_clone-menu_icons{
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
