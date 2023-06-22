@@ -17,8 +17,7 @@
 .reddit_clone-post_button {
   display: flex;
   flex-direction: column;
-  position: relative;
- height: 100%;
+ 
   /* align-items: start; */
   /* justify-content:center; */
   margin: 0.5rem 0 0 0;
@@ -42,8 +41,6 @@
 .reddit_clone-post_button_upvote {
   display: flex;
   flex-direction: column;
-  position: relative;
-  top:0rem;
   
 }
 
