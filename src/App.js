@@ -34,7 +34,7 @@ const App = () => {
   const [userName, setUserName] = useState('');
   useEffect(() => {
     const reddit = JSON.parse(localStorage.getItem('reddit_clone'));
-    if (reddit) {
+    if (reddit?.length>0) {
       setLogin(true);
       setUserName(reddit[0]);
     }

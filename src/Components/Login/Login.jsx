@@ -67,7 +67,7 @@ const Login = () => {
             required
             value={inp.username}
           />
-          {error && <p>{error}</p>}
+          {error && <p style={{color:"red"}}>{error}</p>}
           <input
             type="password"
             placeholder="Password"

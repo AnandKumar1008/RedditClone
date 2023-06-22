@@ -8,6 +8,7 @@ const AddPost = ({ newPost, setNewPost }) => {
   const inputRef = useRef();
   // const [upload, setUpload] = useState([]);
   const handleClick = () => {
+    if(inputRef.current.value.length==0) return ;
     setUpdate([
       <Post post={inputRef.current.value} key={update.length} />,
       ...update,
